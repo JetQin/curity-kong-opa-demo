@@ -4,9 +4,10 @@ val logback_version: String by project
 plugins {
     kotlin("jvm") version "2.0.21"
     id("io.ktor.plugin") version "3.0.0"
+    kotlin("plugin.serialization").version("2.0.0")
 }
 
-group = "com.example"
+group = "io.github.jetqin"
 version = "0.0.1"
 
 application {
@@ -28,11 +29,10 @@ dependencies {
     testImplementation("io.ktor:ktor-server-test-host-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
     implementation("io.ktor:ktor-serialization-jackson:$kotlin_version")
+    implementation("io.ktor:ktor-server-content-negotiation:$kotlin_version")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$kotlin_version")
 }
 
-install(ContentNegotiation) {
-    jackson()
-}
 
 tasks.withType<Jar> {
     manifest {
