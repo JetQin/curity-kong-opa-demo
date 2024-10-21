@@ -45,8 +45,8 @@ services:
       - "8080:8080"
     container_name: api
     hostname: api
-    volumes: 
-      - ${OPA_KONG_VOLUME_BASE_PATH:-.}/api/server/data/:/app/data
+    # volumes: 
+    #   - ${OPA_KONG_VOLUME_BASE_PATH:-.}/api/server/data/:/app/data
     networks:
       curity:
         aliases:
